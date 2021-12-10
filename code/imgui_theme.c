@@ -1,0 +1,79 @@
+
+// change the theme of the imgui
+void imgui_change_theme()
+{
+    // colors
+    imgui_push_style_color(ImGuiCol_Text, imgui_theme_text_color);
+    imgui_push_style_color(ImGuiCol_TextDisabled, imgui_theme_text_disabled_color);
+    imgui_push_style_color(ImGuiCol_TextSelectedBg, imgui_theme_panel_active_color);
+    imgui_push_style_color(ImGuiCol_WindowBg, imgui_theme_bg_color);
+    imgui_push_style_color(ImGuiCol_ChildBg, imgui_theme_bg_color);
+    imgui_push_style_color(ImGuiCol_PopupBg, imgui_theme_bg_color);
+    imgui_push_style_color(ImGuiCol_Border, imgui_theme_border_color);
+    imgui_push_style_color(ImGuiCol_BorderShadow, imgui_theme_border_color);
+    imgui_push_style_color(ImGuiCol_FrameBg, imgui_theme_panel_color);
+    imgui_push_style_color(ImGuiCol_FrameBgHovered, imgui_theme_panel_hover_color);
+    imgui_push_style_color(ImGuiCol_FrameBgActive, imgui_theme_panel_active_color);
+    imgui_push_style_color(ImGuiCol_TitleBg, imgui_theme_bg_color);
+    imgui_push_style_color(ImGuiCol_TitleBgActive, imgui_theme_bg_color);
+    imgui_push_style_color(ImGuiCol_TitleBgCollapsed, imgui_theme_bg_color);
+    imgui_push_style_color(ImGuiCol_MenuBarBg, imgui_theme_panel_color);
+    imgui_push_style_color(ImGuiCol_ScrollbarBg, imgui_theme_panel_color);
+    imgui_push_style_color(ImGuiCol_ScrollbarGrab, imgui_theme_light_bg_color);
+    imgui_push_style_color(ImGuiCol_ScrollbarGrabHovered, imgui_theme_very_light_bg_color);
+    imgui_push_style_color(ImGuiCol_ScrollbarGrabActive, imgui_theme_very_light_bg_color);
+    imgui_push_style_color(ImGuiCol_CheckMark, imgui_theme_panel_active_color);
+    imgui_push_style_color(ImGuiCol_SliderGrab, imgui_theme_light_bg_color);
+    imgui_push_style_color(ImGuiCol_SliderGrabActive, imgui_theme_light_bg_color);
+    imgui_push_style_color(ImGuiCol_Button, imgui_theme_panel_color);
+    imgui_push_style_color(ImGuiCol_ButtonHovered, imgui_theme_panel_hover_color);
+    imgui_push_style_color(ImGuiCol_ButtonActive, imgui_theme_panel_hover_color);
+    imgui_push_style_color(ImGuiCol_Header, imgui_theme_very_light_bg_color);
+    imgui_push_style_color(ImGuiCol_HeaderHovered, imgui_theme_panel_hover_color);
+    imgui_push_style_color(ImGuiCol_HeaderActive, imgui_theme_panel_active_color);
+    imgui_push_style_color(ImGuiCol_Separator, imgui_theme_border_color);
+    imgui_push_style_color(ImGuiCol_SeparatorHovered, imgui_theme_border_color);
+    imgui_push_style_color(ImGuiCol_SeparatorActive, imgui_theme_border_color);
+    imgui_push_style_color(ImGuiCol_ResizeGrip, imgui_theme_bg_color);
+    imgui_push_style_color(ImGuiCol_ResizeGripHovered, imgui_theme_panel_color);
+    imgui_push_style_color(ImGuiCol_ResizeGripActive, imgui_theme_light_bg_color);
+    imgui_push_style_color(ImGuiCol_Tab, imgui_theme_bg_color);
+    imgui_push_style_color(ImGuiCol_TabActive, imgui_theme_panel_active_color);
+    imgui_push_style_color(ImGuiCol_TabUnfocused, imgui_theme_bg_color);
+    imgui_push_style_color(ImGuiCol_TabUnfocusedActive, imgui_theme_panel_active_color);
+    imgui_push_style_color(ImGuiCol_TabHovered, imgui_theme_panel_hover_color);
+    imgui_push_style_color(ImGuiCol_PlotLines, imgui_theme_panel_active_color);
+    imgui_push_style_color(ImGuiCol_PlotLinesHovered, imgui_theme_panel_hover_color);
+    imgui_push_style_color(ImGuiCol_PlotHistogram, imgui_theme_panel_active_color);
+    imgui_push_style_color(ImGuiCol_PlotHistogramHovered, imgui_theme_panel_hover_color);
+    imgui_push_style_color(ImGuiCol_TextSelectedBg, imgui_theme_bg_color);
+    imgui_push_style_color(ImGuiCol_DragDropTarget, imgui_theme_bg_color);
+    imgui_push_style_color(ImGuiCol_NavHighlight, imgui_theme_bg_color);
+    imgui_push_style_color(ImGuiCol_NavWindowingHighlight, imgui_theme_bg_color);
+    imgui_push_style_color(ImGuiCol_NavWindowingDimBg, imgui_theme_bg_color);
+    imgui_push_style_color(ImGuiCol_ModalWindowDimBg, imgui_theme_bg_color);
+
+    // style settings
+    imgui_push_style_vec(ImGuiStyleVar_WindowPadding, engine_theme_win_padding);
+    imgui_push_style_var(ImGuiStyleVar_WindowRounding, engine_theme_win_rounding);
+    imgui_push_style_var(ImGuiStyleVar_WindowBorderSize, engine_theme_win_bordersize);
+    imgui_push_style_vec(ImGuiStyleVar_WindowMinSize, engine_theme_win_minsize);
+    imgui_push_style_vec(ImGuiStyleVar_WindowTitleAlign, engine_theme_win_title_alignment);
+    imgui_push_style_var(ImGuiStyleVar_ChildRounding, engine_theme_child_rounding);
+    imgui_push_style_var(ImGuiStyleVar_ChildBorderSize, engine_theme_child_bordersize);
+    imgui_push_style_var(ImGuiStyleVar_PopupRounding, engine_theme_popup_rounding);
+    imgui_push_style_var(ImGuiStyleVar_PopupBorderSize, engine_theme_popup_bordersize);
+    imgui_push_style_vec(ImGuiStyleVar_FramePadding, engine_theme_frame_padding);
+    imgui_push_style_var(ImGuiStyleVar_FrameRounding, engine_theme_frame_rounding);
+    imgui_push_style_var(ImGuiStyleVar_FrameBorderSize, engine_theme_frame_bordersize); // slider grab bug...
+    imgui_push_style_vec(ImGuiStyleVar_ItemSpacing, engine_theme_item_spacing);
+    imgui_push_style_vec(ImGuiStyleVar_ItemInnerSpacing, engine_theme_item_inner_spacing);
+    imgui_push_style_var(ImGuiStyleVar_IndentSpacing, engine_theme_indent_spacing);
+    imgui_push_style_var(ImGuiStyleVar_ScrollbarSize, engine_theme_scrollbar_size);
+    imgui_push_style_var(ImGuiStyleVar_ScrollbarRounding, engine_theme_scrollbar_rounding);
+    imgui_push_style_var(ImGuiStyleVar_GrabMinSize, engine_theme_grab_minsize);
+    imgui_push_style_var(ImGuiStyleVar_GrabRounding, engine_theme_grab_rounding);
+    imgui_push_style_var(ImGuiStyleVar_TabRounding, engine_theme_tab_rounding);
+    imgui_push_style_vec(ImGuiStyleVar_ButtonTextAlign, engine_theme_button_textalign);
+    imgui_push_style_vec(ImGuiStyleVar_SelectableTextAlign, engine_theme_selectable_textalign);
+}
