@@ -14,7 +14,7 @@ You can easily show/hide any of those settings (check out beginning on main.c).
 - Launches the game (predefined executable)
 
 # How to get it working
-All you need to do is initialize all the settings from the config file at the start of your game (example will follow soon).
+All you need to do is initialize all the settings from the config file at the start of your game (check out example folder).
 
 # Known issues
 - no gamepad support for keybindings (only mouse+keyboard) as I don't own xinput device. I might add support in future;
