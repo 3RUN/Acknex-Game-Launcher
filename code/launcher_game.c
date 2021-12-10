@@ -35,7 +35,7 @@ void launcher_game_tab_refresh()
     int i = 0;
     for (i = 0; i < GAME_LANGUAGE_MAX; i++)
     {
-        if (strcmp(config_current.game_language_str, _chr(launcher_game_language_list_str[i])))
+        if (strcmp(config_current.game_language_str, _chr(launcher_game_language_list_str[i])) == 0)
         {
             str_cpy(launcher_game_language_used_str, _str(config_current.game_language_str));
         }

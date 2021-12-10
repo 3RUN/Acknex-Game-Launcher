@@ -1,0 +1,2 @@
+If you created 'save_dir' by running any scripts, make sure to remove them by hand, before running launcher.exe!
+Because path to the project will be corrupted! Player's won't face this, since they will simply download the game and run launcher.exe!
