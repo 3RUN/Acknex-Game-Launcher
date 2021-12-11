@@ -17,6 +17,7 @@
 #define USE_GAME_TAB
 
 // enable/disable settings
+#define USE_GRAPHICS_FPSCAP_N_VSYNC
 #define USE_GRAPHICS_QUALITY
 
 // enable/disable language, path_to_exe

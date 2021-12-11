@@ -51,6 +51,9 @@ int is_launcher_has_wrong_path_popup_closing = false;
 // create configuration window
 void launcher_create_window(int width, int height);
 
+// create tooltip with the given string
+void launcher_create_tooltip(STRING *str);
+
 // initialize configuration
 void launcher_initialize(STRING *config_file);
 

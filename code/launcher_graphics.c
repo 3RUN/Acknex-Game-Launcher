@@ -125,15 +125,26 @@ void launcher_create_graphics_tab()
         // use desktop resolution checkbox
         if (config_current.is_desktop_res == true)
         {
+            // set to fullscreen mode
+            config_current.graphics_display_mode = DISPLAY_MODE_FULLSCREEN;
+            str_cpy(launcher_graphics_display_currently_used_str, launcher_graphics_display_mode_list_str[DISPLAY_MODE_FULLSCREEN]);
             imgui_text(_chr(launcher_graphics_monitor_res_str));
+
+            // set proper screen resolution id !
+            str_cpy(launcher_graphics_resolution_currently_used_str, launcher_graphics_resolution_available_list_str[desktop_resolution_id]);
+            config_current.graphics_video_res_id = desktop_resolution_id;
+
+            launcher_create_tooltip(launcher_graphics_tooltip_use_desktop_res_str);
         }
         else
         {
             imgui_text_disabled(_chr(launcher_graphics_monitor_res_str));
+            launcher_create_tooltip(launcher_graphics_tooltip_use_desktop_res_str);
         }
         imgui_same_line();
         imgui_align_right_with_offset(CHECKBOX_OFFSET);
         imgui_checkbox("##Use desktop resolution", &config_current.is_desktop_res);
+        launcher_create_tooltip(launcher_graphics_tooltip_use_desktop_res_str);
 
         // not in desktop resolution ?
         // then allow tweaking everything by hand
@@ -222,6 +233,30 @@ void launcher_create_graphics_tab()
             }
             */
         }
+
+// fps cap (only in windowed or borderless) and v-sync (only in fullscreen)
+#ifdef USE_GRAPHICS_FPSCAP_N_VSYNC
+        if (config_current.graphics_display_mode == DISPLAY_MODE_FULLSCREEN)
+        {
+            imgui_text(_chr(launcher_graphics_vsync_str));
+            imgui_same_line();
+            imgui_align_right_with_offset(COMBOBOX_WIDTH);
+            imgui_push_item_width(COMBOBOX_WIDTH - 1);
+            imgui_radiobutton(_chr(launcher_graphics_vsync_double_str), &config_current.is_vsync_on, 0);
+            imgui_same_line();
+            imgui_radiobutton(_chr(launcher_graphics_vsync_triple_str), &config_current.is_vsync_on, 1);
+            imgui_pop_item_width();
+        }
+        else
+        {
+            imgui_text(_chr(launcher_graphics_fps_cap_str));
+            imgui_same_line();
+            imgui_align_right_with_offset(COMBOBOX_WIDTH);
+            imgui_push_item_width(COMBOBOX_WIDTH - 1);
+            imgui_slider_int("##FPS Cap", &config_current.graphics_fps_cap, FPS_MIN, FPS_MAX);
+            imgui_pop_item_width();
+        }
+#endif
 
 // quality options here
 #ifdef USE_GRAPHICS_QUALITY

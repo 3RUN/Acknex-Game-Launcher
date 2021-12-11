@@ -15,6 +15,7 @@ void config_initialize(STRING *config_file)
     config_default.graphics_display_mode = graphics_display_def_mode;
     config_default.graphics_quality_mode = graphics_quality_def_mode;
     config_default.graphics_fps_cap = graphics_fps_def_cap;
+    config_default.is_vsync_on = is_vsync_def_on;
 
     // default game settings
     strcpy(config_default.game_language_str, _chr(game_def_language_str));
@@ -62,6 +63,7 @@ void config_reset_to_default()
         config_current.graphics_display_mode = config_default.graphics_display_mode;
         config_current.graphics_quality_mode = config_default.graphics_quality_mode;
         config_current.graphics_fps_cap = config_default.graphics_fps_cap;
+        config_current.is_vsync_on = config_default.is_vsync_on;
     }
     else if (launcher_selected_tab_id == TAB_INPUT)
     {
@@ -96,7 +98,8 @@ void config_load_from_file(STRING *config_file)
     ini_read_write_int(&config_current.graphics_video_res_id, config_file, config_graphics_section_str, graphics_video_res_id_entry_str, config_default.graphics_video_res_id);
     ini_read_write_int(&config_current.graphics_display_mode, config_file, config_graphics_section_str, graphics_display_mode_entry_str, config_default.graphics_display_mode);
     ini_read_write_int(&config_current.graphics_quality_mode, config_file, config_graphics_section_str, graphics_quality_mode_entry_str, config_default.graphics_quality_mode);
-    ini_read_write_var(&config_current.graphics_fps_cap, config_file, config_graphics_section_str, graphics_fps_cap_entry_str, config_default.graphics_fps_cap);
+    ini_read_write_int(&config_current.graphics_fps_cap, config_file, config_graphics_section_str, graphics_fps_cap_entry_str, config_default.graphics_fps_cap);
+    ini_read_write_int(&config_current.is_vsync_on, config_file, config_graphics_section_str, graphics_vsync_entry_str, config_default.is_vsync_on);
 
     // game
     ini_read_write_char(config_current.game_language_str, config_file, config_game_section_str, game_language_entry_str, config_default.game_language_str);
@@ -118,7 +121,8 @@ void config_save_to_file(STRING *config_file)
     ini_write_int(config_file, config_graphics_section_str, graphics_video_res_id_entry_str, config_current.graphics_video_res_id);
     ini_write_int(config_file, config_graphics_section_str, graphics_display_mode_entry_str, config_current.graphics_display_mode);
     ini_write_int(config_file, config_graphics_section_str, graphics_quality_mode_entry_str, config_current.graphics_quality_mode);
-    ini_write_var(config_file, config_graphics_section_str, graphics_fps_cap_entry_str, config_current.graphics_fps_cap);
+    ini_write_int(config_file, config_graphics_section_str, graphics_fps_cap_entry_str, config_current.graphics_fps_cap);
+    ini_write_int(config_file, config_graphics_section_str, graphics_vsync_entry_str, config_current.is_vsync_on);
 
     // game
     ini_write(config_file, config_game_section_str, game_language_entry_str, config_current.game_language_str);

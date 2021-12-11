@@ -37,6 +37,7 @@ STRING *graphics_is_desktop_entry_str = "Use desktop resolution";
 STRING *graphics_video_res_id_entry_str = "Video resolution id";
 STRING *graphics_display_mode_entry_str = "Display mode";
 STRING *graphics_quality_mode_entry_str = "Quality mode";
+STRING *graphics_vsync_entry_str = "V-Sync";
 STRING *graphics_fps_cap_entry_str = "Fps cap";
 
 // config game entries
@@ -56,7 +57,8 @@ int is_desktop_def_res = false;
 int graphics_video_res_def_id = 0;
 int graphics_display_def_mode = DISPLAY_MODE_WINDOWED;
 int graphics_quality_def_mode = QUALITY_LOW;
-var graphics_fps_def_cap = 60;
+int graphics_fps_def_cap = 60;
+int is_vsync_def_on = false;
 
 // default game config
 STRING *game_def_language_str = "English";
@@ -77,7 +79,8 @@ typedef struct CONFIG
     int graphics_video_res_id;
     int graphics_display_mode;
     int graphics_quality_mode;
-    var graphics_fps_cap;
+    int graphics_fps_cap;
+    int is_vsync_on;
 
     // game
     char game_language_str[32];

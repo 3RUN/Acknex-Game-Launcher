@@ -18,6 +18,17 @@ void launcher_create_window(int width, int height)
     video_window(NULL, NULL, 16 + 32 + 64, project_launcher_str);
 }
 
+// create tooltip with the given string
+void launcher_create_tooltip(STRING *str)
+{
+    if (imgui_is_item_hovered())
+    {
+        imgui_set_tooltip(_chr(str));
+        imgui_begin_tooltip();
+        imgui_end_tooltip();
+    }
+}
+
 // initialize launcher's gui
 void launcher_initialize(STRING *config_file)
 {
