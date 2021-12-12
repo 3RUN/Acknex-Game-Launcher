@@ -241,11 +241,9 @@ void launcher_create_graphics_tab()
             imgui_text(_chr(launcher_graphics_vsync_str));
             imgui_same_line();
             imgui_align_right_with_offset(COMBOBOX_WIDTH);
-            imgui_push_item_width(COMBOBOX_WIDTH - 1);
             imgui_radiobutton(_chr(launcher_graphics_vsync_double_str), &config_current.is_vsync_on, 0);
             imgui_same_line();
             imgui_radiobutton(_chr(launcher_graphics_vsync_triple_str), &config_current.is_vsync_on, 1);
-            imgui_pop_item_width();
         }
         else
         {
