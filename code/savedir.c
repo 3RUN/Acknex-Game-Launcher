@@ -30,6 +30,9 @@ void savedir_create_folder()
 
     // set new save directory
     str_cpy(save_dir, _str(documents_path));
+    str_cat(save_dir, "\\");
+    str_cat(save_dir, project_name_str);
+    str_cat(save_dir, "\\");
 
     // check if directory exists or not
     // and if it doesn't, create it !
