@@ -7,7 +7,7 @@ var imgui_begin_popup_context_item(char *label);
 void imgui_open_popup(char *str_id);
 VECTOR *imgui_get_mouse_pos_on_opening_current_popup();
 
-//imgui_dll_button.cpp
+// imgui_dll_button.cpp
 var imgui_button(char *label);
 var imgui_button_withsize(char *label, var width, var height);
 var imgui_button_color(char *label, VECTOR *normal, VECTOR *hover, VECTOR *pushed);
@@ -25,7 +25,7 @@ var imgui_small_button(char *label);
 var imgui_image_button(BMAP *input, VECTOR *size, VECTOR *uv0, VECTOR *uv1, int frame_padding, VECTOR *bg_col, var bg_alpha, VECTOR *tint_color, var tint_alpha);
 var imgui_image_button_tex_id(void *my_tex_id, VECTOR *size, VECTOR *uv0, VECTOR *uv1, int frame_padding, VECTOR *bg_col, var bg_alpha, VECTOR *tint_color, var tint_alpha);
 
-//imgui_dll_draw.cpp
+// imgui_dll_draw.cpp
 void *imgui_get_window_draw_list();
 void imgui_drawlist_add_line(void *draw_list, var xa, var ya, var xb, var yb, COLOR4 *color, var thickness);
 void imgui_drawlist_channel_split(void *draw_list, int channels_count);
@@ -41,7 +41,7 @@ void imgui_drawlist_add_text(void *draw_list, VECTOR *pos, COLOR4 *color, char *
 void imgui_drawlist_add_polygon(void *draw_list, POINT **points, int num_points, COLOR4 *col, int closed, var thickness);
 void imgui_drawlist_add_image(void *draw_list, BMAP *input, VECTOR *a, VECTOR *b, VECTOR *uv_a, VECTOR *uv_b, VECTOR *tint_color, var tint_alpha);
 
-//imgui_dll_layout.cpp
+// imgui_dll_layout.cpp
 var imgui_font_allow_user_scaling();
 void imgui_indent(var indent_w);
 void imgui_unindent(var indent_w);
@@ -69,7 +69,7 @@ VECTOR *imgui_get_item_rect_min();
 VECTOR *imgui_get_item_rect_max();
 void imgui_new_line();
 
-//imgui_dll_window.cpp
+// imgui_dll_window.cpp
 void imgui_set_next_window_pos(var x, var y, long condition);
 void imgui_set_next_window_size(var width, var height, long condition);
 var imgui_get_window_width();
@@ -84,7 +84,7 @@ void imgui_end_child();
 var imgui_get_content_region_avail_width();
 VECTOR *imgui_get_window_size();
 
-//imgui_dll_lists.cpp
+// imgui_dll_lists.cpp
 var imgui_listbox_header(char *label, int items_count, int height_in_items);
 void imgui_listbox_footer();
 int imgui_selectable(char *label, int *p_selected, int flags);
@@ -96,7 +96,7 @@ var imgui_begin_combo(char *label, char *preview_value, long flags);
 void imgui_end_combo();
 var imgui_list_box(char *label, int *current_item, char **items, int items_count, int height_in_items);
 
-//imgui_dll_sliders.cpp
+// imgui_dll_sliders.cpp
 var imgui_slider_int(char *label, int *v, int v_min, int v_max);
 var imgui_slider_float(char *label, float *v, float v_min, float v_max, char *format, float power);
 var imgui_slider_angle(char *label, float *v_rad, float v_degrees_min, float v_degrees_max, char *format);
@@ -113,31 +113,23 @@ var imgui_slider_var3(char *label, var *v, var v_min, var v_max);
 var imgui_slider_var4(char *label, var *v, var v_min, var v_max);
 var imgui_slider_vector(char *label, VECTOR *v, var v_min, var v_max);
 
-//imgui_dll_image.cpp
+// imgui_dll_image.cpp
 void imgui_image(BMAP *input);
 void imgui_image_scale(BMAP *input, VECTOR *size, VECTOR *uv_start, VECTOR *uv_end);
 void imgui_image_scale_color(BMAP *input, VECTOR *size, VECTOR *uv_start, VECTOR *uv_end, VECTOR *tint_color, var tint_alpha, VECTOR *border_col, var border_alpha);
 void imgui_image_scale_color_tex_id(void *my_tex_id, VECTOR *size, VECTOR *uv_start, VECTOR *uv_end, VECTOR *tint_color, var tint_alpha, VECTOR *border_col, var border_alpha);
 
-//imgui_dll_plots.cpp
+// imgui_dll_plots.cpp
 void imgui_plot_lines(char *label, float *values, int values_count, float values_offset, char *overlay_text, float scale_min, float scale_max, VECTOR *graph_size);
 void imgui_plotlines(char *label, float *values, int values_count);
 void imgui_plot_histogram(char *label, float *values, int values_count, int values_offset, char *overlay_text, float scale_min, float scale_max, VECTOR *graph_size, int stride);
 void imgui_progress_bar(var fraction, VECTOR *size_arg, char *overlay);
 
-//imgui_dll_text.cpp
+// imgui_dll_text.cpp
 void imgui_text(char *fmt);
-
-void imgui_text_center(STRING *text)
-{
-    float font_size = imgui_get_font_size() * str_len(text) / 2;
-    VECTOR win_size;
-    vec_set(&win_size, imgui_get_window_size());
-    imgui_same_line_params(win_size.x / 2 - font_size + (font_size / 2), 0);
-    imgui_text(text);
-}
-
+void imgui_text_centered(char *fmt);
 void imgui_text_disabled(char *fmt);
+void imgui_text_disabled_centered(char *fmt);
 void imgui_push_text_wrap_pos(var wrap_local_pos_x);
 void imgui_pop_text_wrap_pos();
 void imgui_text_unformatted(char *text);
@@ -147,7 +139,7 @@ void imgui_label_text(char *label, char *fmt);
 void imgui_bullet();
 void imgui_text_colored(var r, var g, var b, var a, char *fmt);
 
-//imgui_dll_grouping.cpp
+// imgui_dll_grouping.cpp
 var imgui_collapsing_header(char *label, void *p_open, long flags);
 void imgui_tree_pop();
 void imgui_begin_group();
@@ -165,12 +157,12 @@ void imgui_end_tabbar();
 int imgui_begin_tabitem(char *label, void *state, long flags);
 void imgui_end_tabitem();
 
-//imgui_dll_main.cpp
+// imgui_dll_main.cpp
 void imgui_ext_strcpy(char *dest, char *source);
 void imgui_start_imode();
 void imgui_end_imode();
 
-//imgui_dll_inputs.cpp
+// imgui_dll_inputs.cpp
 var imgui_input_text(char *label, char *buffer, int buffer_size, long flags);
 var imgui_input_text_with_hint(char *label, char *hint, char *buf, int buf_size, long flags);
 var imgui_input_text_multiline(char *label, char *buf, int buf_size, int width, int height, long flags);
@@ -195,7 +187,7 @@ var imgui_drag_float4(char *label, float *v, float v_speed, float v_min, float v
 int imgui_drag_float_range2(char *label, float *v_current_min, float *v_current_max, var v_speed, var v_min, var v_max, char *format, char *format_max, var power);
 int imgui_drag_int_range2(char *label, int *v_current_min, int *v_current_max, var v_speed, var v_min, var v_max, char *format, char *format_max);
 
-//imgui_dll_system.cpp
+// imgui_dll_system.cpp
 var imgui_is_item_active();
 var imgui_is_anytime_active();
 VECTOR *imgui_get_item_rect_size();
@@ -237,14 +229,14 @@ int imgui_is_mouse_double_clicked(int button);
 var imgui_get_io_delta_time();
 void imgui_color_convert_HSVto_RGB(var h, var s, var v, var *out_r, var *out_g, var *out_b);
 
-//imgui_dll_menu.cpp
+// imgui_dll_menu.cpp
 var imgui_begin_menu_bar();
 void imgui_end_menu_bar();
 var imgui_begin_menu(char *label, int enabled);
 void imgui_end_menu();
 var imgui_menu_item(char *label, char *shortcut, int selected, int enabled);
 
-//imgui_dll_combi.cpp
+// imgui_dll_combi.cpp
 var imgui_color_edit3(char *label, float *col, long flags);
 var imgui_color_edit4(char *label, float *col, long flags);
 void imgui_show_metrics_window(int *p_open);
@@ -255,7 +247,7 @@ int imgui_color_button(char *desc_id, float *col, int flags, VECTOR *size);
 int imgui_color_picker_4(char *label, float *col, int flags, float *ref_col);
 void imgui_set_color_edit_options(int flags);
 
-//imgui_dll_tooltip.cpp
+// imgui_dll_tooltip.cpp
 void imgui_set_tooltip(char *tooltip);
 void imgui_begin_tooltip();
 void imgui_end_tooltip();
@@ -263,6 +255,29 @@ void imgui_end_tooltip();
 void imgui_init(long config_flags);
 void imgui_reset();
 long custom_scan_message(UINT message, WPARAM wParam, LPARAM lParam);
+
+void imgui_create_tooltip(char *tooltip)
+{
+    if (imgui_is_item_hovered())
+    {
+        imgui_set_tooltip(tooltip);
+        imgui_begin_tooltip();
+        imgui_end_tooltip();
+    }
+}
+
+void imgui_help_maker(char *desc)
+{
+    imgui_text_disabled("(?)");
+    if (imgui_is_item_hovered())
+    {
+        imgui_begin_tooltip();
+        imgui_push_text_wrap_pos(imgui_get_font_size() * 35);
+        imgui_text_unformatted(desc);
+        imgui_pop_text_wrap_pos();
+        imgui_end_tooltip();
+    }
+}
 
 void imgui_align_right_with_offset(var offset)
 {
@@ -276,6 +291,6 @@ void imgui_align_bottom_with_offset(var offset)
 {
     VECTOR pos;
     vec_set(&pos, imgui_get_cursor_screen_pos());
-    pos.y = imgui_get_window_height() - (offset + engine_theme_win_padding[1]);
+    pos.y = (imgui_get_window_y() + imgui_get_window_height()) - (offset + ((engine_theme_win_padding[1] * 1.5)));
     imgui_set_cursor_screen_pos(&pos);
 }

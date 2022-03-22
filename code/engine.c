@@ -49,13 +49,12 @@ void engine_mouse_set_position(VECTOR *pos)
 }
 
 // return mouse position
-VECTOR *engine_mouse_get_position()
+void engine_mouse_get_position(VECTOR *out)
 {
 	POINT cp;
 	GetCursorPos(&cp);
-	VECTOR pos;
-	vec_set(&pos, vector(cp.x, cp.y, 0));
-	return &pos;
+
+	vec_set(out, vector(cp.x, cp.y, 0));
 }
 
 // enable the mouse
@@ -113,14 +112,14 @@ void engine_set_resolution_from_id(int id, int display_mode)
 	{
 		video_window(NULL, NULL, 16 + 32, project_name_str);
 	}
-	
+
 	if (video_set(width, height, 0, 0) == 0)
 	{
 		engine_set_resolution_from_id(id - 1, display_mode);
 		diag("\nERROR in engine_set_resolution_from_id! Can't set to selected resolution... Lowering resolution!");
 		return;
 	}
-	
+
 	// fullscreen boarderless windows
 	if (display_mode == DISPLAY_MODE_WINDOWED_FULLSCREEN)
 	{

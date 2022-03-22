@@ -11,7 +11,7 @@
 
 // button size (used for browse button)
 #define BROWSE_BUTTON_WIDTH 95
-#define BROWSE_BUTTON_HEIGHT 22
+#define BROWSE_BUTTON_HEIGHT 24
 
 // input button size
 #define INPUT_BOTTON_WIDTH 256
@@ -48,19 +48,19 @@ int launcher_selected_tab_id = 0;
 int is_launcher_has_wrong_path_popup_modal_on = false;
 int is_launcher_has_wrong_path_popup_closing = false;
 
-// create configuration window
+// create launcher window
 void launcher_create_window(int width, int height);
 
 // create tooltip with the given string
 void launcher_create_tooltip(STRING *str);
 
-// initialize configuration
+// initialize launcher's gui
 void launcher_initialize(STRING *config_file);
 
 // show warning message when game's .exe doesn't exist or not found
 void launcher_show_wrong_path_to_game_warning();
 
-// update configuration
+// update launcher
 void launcher_update();
 
 #endif

@@ -8,9 +8,6 @@ STRING *launcher_game_language_english_str = "English";
 STRING *launcher_game_language_russian_str = "Russian";
 STRING *launcher_game_language_german_str = "German";
 
-// empty prototype function used for imgui_get_window_draw_list function
-void launcher_draw_list();
-
 // initialize all game tab config
 void launcher_game_tab_initialize();
 

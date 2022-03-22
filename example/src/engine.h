@@ -17,7 +17,7 @@ void engine_mouse_lock_in_window();
 void engine_mouse_set_position(VECTOR *pos);
 
 // return mouse position
-VECTOR *engine_mouse_get_position();
+void engine_mouse_get_position(VECTOR *out);
 
 // enable the mouse
 void engine_mouse_enable(int is_mouse_centered);

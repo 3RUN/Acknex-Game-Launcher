@@ -5,13 +5,13 @@
 var engine_theme_win_padding[2] = {8, 8};
 var engine_theme_win_rounding = 0;
 var engine_theme_win_bordersize = 2;
-var engine_theme_win_minsize[2] = {80, 80};
+var engine_theme_win_minsize[2] = {16, 16};
 var engine_theme_win_title_alignment[2] = {0.5, 0.5};
 var engine_theme_child_rounding = 0;
 var engine_theme_child_bordersize = 2;
 var engine_theme_popup_rounding = 0;
 var engine_theme_popup_bordersize = 2;
-var engine_theme_frame_padding[2] = {12, 1};
+var engine_theme_frame_padding[2] = {2, 2};
 var engine_theme_frame_rounding = 0;
 var engine_theme_frame_bordersize = 0; // anything more than 0 causes a slider grab centration bug (on Y)
 var engine_theme_item_spacing[2] = {4, 4};
@@ -39,6 +39,7 @@ COLOR4* imgui_theme_text_disabled_color = { red = 151; green = 151; blue = 151; 
 COLOR4* imgui_theme_border_color = { red = 78; green = 78; blue = 78; alpha = 255; }
 
 // simple colors
+COLOR4* color4_image = { red = 1; green = 1; blue = 1; alpha = 100; }
 COLOR4* color4_clear = { red = 0; green = 0; blue = 0; alpha = 0; }
 COLOR4* color4_black = { red = 0; green = 0; blue = 0; alpha = 255; }
 COLOR4* color4_white = { red = 255; green = 255; blue = 255; alpha = 255; }

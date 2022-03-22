@@ -15,6 +15,6 @@ int keybind_return_scancode_from_letter(STRING *key);
 
 // return a letter from the given scancode
 // this can be used for saving input from the game options
-STRING *keybind_return_letter_from_scancode(int scancode);
+void keybind_return_letter_from_scancode(STRING **out, int scancode);
 
 #endif

@@ -8,6 +8,29 @@ typedef short unicode;
 // IMGUI
 // ------------------------------------------------------------------------------------------------------
 
+void editor_create_tooltip(char *tooltip)
+{
+    if (imgui_is_item_hovered())
+    {
+        imgui_set_tooltip(tooltip);
+        imgui_begin_tooltip();
+        imgui_end_tooltip();
+    }
+}
+
+void editor_help_maker(char *desc)
+{
+    imgui_text_disabled("(?)");
+    if (imgui_is_item_hovered())
+    {
+        imgui_begin_tooltip();
+        imgui_push_text_wrap_pos(imgui_get_font_size() * 35);
+        imgui_text_unformatted(desc);
+        imgui_pop_text_wrap_pos();
+        imgui_end_tooltip();
+    }
+}
+
 // imgui_fonts.ccp
 
 #define GLYPH_RANGE_Default 0
@@ -26,8 +49,12 @@ void imgui_push_font(ImFont *_font);
 
 void imgui_pop_font();
 
+void imgui_set_global_fontscale(float scalefactor);
+
+var imgui_get_text_width(char *fmt);
+
 // choppy custom glyph range implemented for test purpouses
-//ImFont *         imgui_add_ttf_from_file_ranged(char *_chrFont, var _size, var _glyphRangeID, var _offX, var _offY);
+// ImFont *         imgui_add_ttf_from_file_ranged(char *_chrFont, var _size, var _glyphRangeID, var _offX, var _offY);
 ImFont *imgui_add_ttf_from_file_ranged(char *_chrFont, var _size, short *_ranges);
 
 // imgui_helpers.ccp

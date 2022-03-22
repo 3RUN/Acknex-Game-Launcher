@@ -37,19 +37,19 @@ void launcher_input_bind_new_key(STRING *entry, STRING *bindkey)
     {
         strcpy(config_current.input_forward_str, _chr(bindkey));
     }
-    else if (str_cmp(entry, input_backward_entry_str))
+    if (str_cmp(entry, input_backward_entry_str))
     {
         strcpy(config_current.input_backward_str, _chr(bindkey));
     }
-    else if (str_cmp(entry, input_left_entry_str))
+    if (str_cmp(entry, input_left_entry_str))
     {
         strcpy(config_current.input_left_str, _chr(bindkey));
     }
-    else if (str_cmp(entry, input_right_entry_str))
+    if (str_cmp(entry, input_right_entry_str))
     {
         strcpy(config_current.input_right_str, _chr(bindkey));
     }
-    else if (str_cmp(entry, input_toggle_map_entry_str))
+    if (str_cmp(entry, input_toggle_map_entry_str))
     {
         strcpy(config_current.input_toggle_map_str, _chr(bindkey));
     }
@@ -62,19 +62,19 @@ void launcher_input_remove_bind_key(STRING *entry)
     {
         strcpy(config_current.input_forward_str, _chr(input_none_str));
     }
-    else if (str_cmp(entry, input_backward_entry_str))
+    if (str_cmp(entry, input_backward_entry_str))
     {
         strcpy(config_current.input_backward_str, _chr(input_none_str));
     }
-    else if (str_cmp(entry, input_left_entry_str))
+    if (str_cmp(entry, input_left_entry_str))
     {
         strcpy(config_current.input_left_str, _chr(input_none_str));
     }
-    else if (str_cmp(entry, input_right_entry_str))
+    if (str_cmp(entry, input_right_entry_str))
     {
         strcpy(config_current.input_right_str, _chr(input_none_str));
     }
-    else if (str_cmp(entry, input_toggle_map_entry_str))
+    if (str_cmp(entry, input_toggle_map_entry_str))
     {
         strcpy(config_current.input_toggle_map_str, _chr(input_none_str));
     }
@@ -119,7 +119,9 @@ void launcher_input_wait_for_binding(STRING *entry)
             // also (sorry...) we don't support joystick buttons...
             if (key_lastpressed != 1 && key_lastpressed != 83 && key_lastpressed < 256 || key_lastpressed != 1 && key_lastpressed != 83 && key_lastpressed > 279)
             {
-                launcher_input_bind_new_key(entry, keybind_return_letter_from_scancode(key_lastpressed));
+                STRING *bindkey = "";
+                keybind_return_letter_from_scancode(&bindkey, key_lastpressed);
+                launcher_input_bind_new_key(entry, bindkey);
                 wait_for_input = false;
             }
         }

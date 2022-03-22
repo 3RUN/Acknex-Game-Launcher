@@ -46,7 +46,7 @@ int keybind_return_scancode_from_letter(STRING *key)
 
 // return a letter from the given scancode
 // this can be used for saving input from the game options
-STRING *keybind_return_letter_from_scancode(int scancode)
+void keybind_return_letter_from_scancode(STRING **out, int scancode)
 {
     // check if scancode is correct
     // correct range is from 1 to 282
@@ -56,26 +56,20 @@ STRING *keybind_return_letter_from_scancode(int scancode)
         return "";
     }
 
-    STRING *tmp_str = "#16";
-    str_for_key(tmp_str, scancode);
+    str_for_key(*out, scancode);
 
     switch (scancode)
     {
     case 280:
-        str_cpy(tmp_str, mouse_left_str);
+        str_cpy(*out, mouse_left_str);
         break;
 
     case 281:
-        str_cpy(tmp_str, mouse_right_str);
+        str_cpy(*out, mouse_right_str);
         break;
 
     case 282:
-        str_cpy(tmp_str, mouse_middle_str);
-        break;
-
-    default:
+        str_cpy(*out, mouse_middle_str);
         break;
     }
-
-    return tmp_str;
 }
